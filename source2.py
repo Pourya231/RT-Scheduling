@@ -1,6 +1,7 @@
 import threading
 import queue
 import time
+import random
 
 # Task structure
 class Task:
@@ -18,6 +19,8 @@ class Subsystem1(threading.Thread):
         super().__init__()
         self.tasks = sorted(tasks, key=lambda x: x.priority)
         self.time_unit = time_unit
+        self.ready_queue = queue.PriorityQueue()
+        self.waiting_queue = queue.Queue()
 
     def run(self):
         while self.tasks:

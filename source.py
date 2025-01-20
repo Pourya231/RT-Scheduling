@@ -1,125 +1,121 @@
 import threading
+import queue
 import time
-import heapq
+import random
 
-# تعریف وضعیت‌های وظیفه
-READY = "Ready"
-WAITING = "Waiting"
-RUNNING = "Running"
-DEADLOCK = "Deadlock"
-
-# کلاس وظیفه
+# Task structure
 class Task:
-    def __init__(self, name, execution_time, deadline, required_resources):
-        self.name = name
+    def __init__(self, task_id, arrival_time, execution_time, priority=0, resources_required=[]):
+        self.task_id = task_id
+        self.arrival_time = arrival_time
         self.execution_time = execution_time
-        self.deadline = deadline
-        self.required_resources = required_resources
-        self.state = WAITING
-        self.time_remaining = execution_time
-        self.arrival_time = time.time()
+        self.remaining_time = execution_time
+        self.priority = priority
+        self.resources_required = resources_required
+        self.state = "Ready"
 
-    def execute(self):
-        self.state = RUNNING
-        print(f"Executing {self.name} for {self.time_remaining} seconds.")
-        time.sleep(self.time_remaining)
-        self.state = READY
-        print(f"{self.name} has finished execution.")
-        self.time_remaining = 0  # Task completed
-
-# زیرسیستم دوم (Shortest Time Remaining)
-class SubSystem2:
-    def __init__(self, resources_r1, resources_r2):
-        self.resources_r1 = resources_r1
-        self.resources_r2 = resources_r2
-        self.ready_queue = []
-        self.processors = [None, None]  # دو هسته پردازشی
+# Subsystem base class
+class Subsystem(threading.Thread):
+    def __init__(self, subsystem_id, scheduling_algorithm, available_resources):
+        super().__init__()
+        self.subsystem_id = subsystem_id
+        self.scheduling_algorithm = scheduling_algorithm
+        self.ready_queue = queue.PriorityQueue()
+        self.waiting_queue = queue.Queue()
+        self.tasks = []
+        self.lock = threading.Lock()
+        self.available_resources = available_resources
 
     def add_task(self, task):
-        heapq.heappush(self.ready_queue, (task.time_remaining, task))  # استفاده از heap برای SJF
-
-    def schedule_tasks(self):
-        for i in range(len(self.processors)):
-            if self.processors[i] is None and self.ready_queue:
-                _, task = heapq.heappop(self.ready_queue)
-                if self.resources_r1 >= task.required_resources[0] and self.resources_r2 >= task.required_resources[1]:
-                    self.processors[i] = task
-                    task.execute()
-                    self.processors[i] = None
-                    self.allocate_resources(task)
-                else:
-                    print(f"Task {task.name} is waiting due to insufficient resources.")
-                    task.state = WAITING
-                    self.add_task(task)  # دوباره به صف آماده برمی‌گردد
-
-    def allocate_resources(self, task):
-        self.resources_r1 -= task.required_resources[0]
-        self.resources_r2 -= task.required_resources[1]
-        print(f"Resources allocated for {task.name}. Remaining: R1={self.resources_r1}, R2={self.resources_r2}")
-
-# زیرسیستم سوم (Real-Time)
-class SubSystem3:
-    def __init__(self, resources_r1, resources_r2):
-        self.resources_r1 = resources_r1
-        self.resources_r2 = resources_r2
-        self.ready_queue = []
-        self.waiting_queue = []
-        self.processors = [None]  # یک هسته پردازشی
-
-    def add_task(self, task):
-        if task.deadline >= time.time():
-            self.ready_queue.append(task)
-        else:
-            print(f"Task {task.name} missed the deadline.")
-            task.state = DEADLOCK
-
-    def schedule_tasks(self):
-        for task in self.ready_queue:
-            if self.resources_r1 >= task.required_resources[0] and self.resources_r2 >= task.required_resources[1]:
-                self.process_task(task)
+        with self.lock:
+            # Check if resources are available
+            if all(self.available_resources.get(r, 0) > 0 for r in task.resources_required):
+                self.ready_queue.put((task.priority, task))
             else:
-                print(f"Task {task.name} is waiting for resources.")
-                self.waiting_queue.append(task)
+                self.waiting_queue.put(task)
 
-    def process_task(self, task):
-        if task.time_remaining > 2:
-            task.time_remaining -= 2
-            print(f"Executing {task.name} in chunks (2 time units). Remaining time: {task.time_remaining}")
-        else:
-            print(f"Executing final chunk of {task.name}.")
-            task.time_remaining = 0  # Task complete
+    def process_waiting_queue(self):
+        with self.lock:
+            temp_queue = queue.Queue()
+            while not self.waiting_queue.empty():
+                task = self.waiting_queue.get()
+                if all(self.available_resources.get(r, 0) > 0 for r in task.resources_required):
+                    self.ready_queue.put((task.priority, task))
+                else:
+                    temp_queue.put(task)
+            self.waiting_queue = temp_queue
 
-# کلاس نخ اصلی
-class MainThread:
-    def __init__(self):
-        self.subsystems = []
-
-    def add_subsystem(self, subsystem):
-        self.subsystems.append(subsystem)
-
-    def start_system(self):
+    def run(self):
         while True:
-            for subsystem in self.subsystems:
-                subsystem.schedule_tasks()
-            time.sleep(1)  # هر ثانیه یکبار چک کردن وضعیت زیرسیستم‌ها
+            self.process_waiting_queue()
+            if not self.ready_queue.empty():
+                _, task = self.ready_queue.get()
+                print(f"Subsystem {self.subsystem_id}: Executing Task {task.task_id}")
+                task.state = "Running"
+                # Simulate execution
+                time.sleep(task.execution_time)
+                print(f"Subsystem {self.subsystem_id}: Completed Task {task.task_id}")
+                task.state = "Completed"
+                # Release resources after execution
+                for r in task.resources_required:
+                    self.available_resources[r] += 1
+            else:
+                time.sleep(1)  # Idle waiting for tasks
 
-# ایجاد وظایف
-task1 = Task("Task1", 3, time.time() + 10, [1, 1])  # وظیفه‌ای که 3 ثانیه طول می‌کشد
-task2 = Task("Task2", 4, time.time() + 12, [2, 1])  # وظیفه‌ای که 4 ثانیه طول می‌کشد
+# Specific Subsystems with different scheduling algorithms
+class RealTimeSubsystem(Subsystem):
+    def __init__(self, available_resources):
+        super().__init__(1, "Rate Monotonic", available_resources)
 
-# زیرسیستم‌ها
-subsystem2 = SubSystem2(5, 5)
-subsystem2.add_task(task1)
-subsystem2.add_task(task2)
+class ShortestRemainingTimeSubsystem(Subsystem):
+    def __init__(self, available_resources):
+        super().__init__(2, "Shortest Remaining Time First", available_resources)
 
-subsystem3 = SubSystem3(3, 3)
-subsystem3.add_task(task1)
-subsystem3.add_task(task2)
+    def add_task(self, task):
+        with self.lock:
+            # Use remaining time as priority for SRTF
+            if all(self.available_resources.get(r, 0) > 0 for r in task.resources_required):
+                self.ready_queue.put((task.remaining_time, task))
+            else:
+                self.waiting_queue.put(task)
 
-# ایجاد نخ اصلی
-main_thread = MainThread()
-main_thread.add_subsystem(subsystem2)
-main_thread.add_subsystem(subsystem3)
+class WeightedRoundRobinSubsystem(Subsystem):
+    def __init__(self, available_resources):
+        super().__init__(3, "Weighted Round Robin", available_resources)
+        self.time_slice = 2
 
-# اجرای سیستم
-main_thread.start_system()
+# Main thread to coordinate subsystems
+class MainSystem:
+    def __init__(self):
+        self.available_resources = {"R1": 2, "R2": 2}  # Example resources
+        self.subsystems = [
+            RealTimeSubsystem(self.available_resources),
+            ShortestRemainingTimeSubsystem(self.available_resources),
+            WeightedRoundRobinSubsystem(self.available_resources)
+        ]
+
+    def start(self):
+        for subsystem in self.subsystems:
+            subsystem.start()
+
+    def stop(self):
+        for subsystem in self.subsystems:
+            subsystem.join()
+
+if __name__ == "__main__":
+    main_system = MainSystem()
+
+    # Example tasks
+    tasks = [
+        Task(task_id=1, arrival_time=0, execution_time=3, priority=1, resources_required=["R1"]),
+        Task(task_id=2, arrival_time=1, execution_time=5, priority=2, resources_required=["R2"]),
+        Task(task_id=3, arrival_time=2, execution_time=2, priority=1, resources_required=["R1"]),
+    ]
+
+    # Assign tasks to subsystems
+    main_system.subsystems[0].add_task(tasks[0])  # Real-time subsystem
+    main_system.subsystems[1].add_task(tasks[1])  # SRTF subsystem
+    main_system.subsystems[2].add_task(tasks[2])  # Weighted Round Robin subsystem
+
+    # Start the system
+    main_system.start()
