@@ -1,6 +1,8 @@
 import threading
 from subsystem1 import Subsystem1
+from subsystem1 import TaskSubsystem1
 from subsystem2 import Subsystem2
+from subsystem2 import TaskSubsystem2
 from subsystem3 import Subsystem3
 from subsystem3 import TaskSubsystem3
 
@@ -38,8 +40,7 @@ class UpdatedSubsystem1(Subsystem1):
             self.time = 0
         if self.time < getattr(self, 'max_time', 50):
             print(f"[Subsystem1] Time: {self.time}")
-            for processor in self.processors:
-                processor.run_for_one_second()
+            self.clock_processor(self.time)
             self.time += 1
 
 class UpdatedSubsystem2(Subsystem2):
@@ -48,32 +49,32 @@ class UpdatedSubsystem2(Subsystem2):
             self.time = 0
         if self.time < getattr(self, 'max_time', 50):
             print(f"[Subsystem2] Time: {self.time}")
-            for processor in self.processors:
-                processor.run_for_one_second()
+            self.clock_processor(self.time)
             self.time += 1
 
 class UpdatedSubsystem3(Subsystem3):
     def run_one_time_unit(self):
-        if not hasattr(self, 'time'):
-            self.time = 0
-        if self.time < getattr(self, 'max_time', 50):
-            print(f"[Subsystem3] Time: {self.time}")
-            for processor in self.processors:
-                processor.run_for_one_time_unit()
-            self.time += 1
+        pass
+        # if not hasattr(self, 'time'):
+        #     self.time = 0
+        # if self.time < getattr(self, 'max_time', 50):
+        #     print(f"[Subsystem3] Time: {self.time}")
+        #     for processor in self.processors:
+        #         processor.run_for_one_time_unit()
+        #     self.time += 1
 
 # Main function
 if __name__ == "__main__":
-    subsystem1 = UpdatedSubsystem1(10, 10)
-    subsystem1.add_task(["T1", 8, 1, 1, 0, 1])
-    subsystem1.add_task(["T2", 12, 2, 1, 0, 2])
-    subsystem1.add_task(["T3", 10, 1, 1, 2, 3])
+    subsystem1 = UpdatedSubsystem1(3, 3)
+    subsystem1.add_task(TaskSubsystem1(["T1", 8, 1, 1, 0, 1]))
+    subsystem1.add_task(TaskSubsystem1(["T2", 12, 1, 1, 0, 2]))
+    subsystem1.add_task(TaskSubsystem1(["T3", 10, 1, 1, 2, 3]))
     subsystem1.initial_processor()
 
     subsystem2 = UpdatedSubsystem2(10, 10)
-    subsystem2.add_task(["T4", 6, 1, 1, 1])
-    subsystem2.add_task(["T5", 7, 2, 1, 2])
-    subsystem2.add_task(["T6", 9, 1, 1, 3])
+    subsystem2.add_task(TaskSubsystem2(["T4", 6, 1, 1, 1]))
+    subsystem2.add_task(TaskSubsystem2(["T5", 7, 2, 1, 2]))
+    subsystem2.add_task(TaskSubsystem2(["T6", 9, 1, 1, 3]))
     subsystem2.initial_processors()
 
     subsystem3 = UpdatedSubsystem3(max_time=50, subsystem1=subsystem1, subsystem2=subsystem2)

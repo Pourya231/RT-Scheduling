@@ -41,7 +41,7 @@ class Processor(threading.Thread):
 
                 if self.running_task.remaining_time <= 0:
                     print(
-                        f"Task {self.running_task.task_id} has completed execution.")
+                        f"Subsystem {self.subsystem.subsystem_id} Task {self.running_task.task_id} has completed execution.")
                     self.subsystem.finished_tasks.append(self.running_task)
                     self.release_resources()
                     self.running_task = None
@@ -57,22 +57,22 @@ class Processor(threading.Thread):
             self.subsystem.resource1 -= task.resource1_usage
             self.subsystem.resource2 -= task.resource2_usage
 
-            print(f"Processor {self.id}: Starting {task}")
+            print(f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Starting {task}")
 
             self.running_task = task
-            
+
             self.running_task.remaining_time -= 1
             print(
-                f"Processor {self.id}: Running {self.running_task}, remaining time {self.running_task.remaining_time}")
-            
+                f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Running {self.running_task}, remaining time {self.running_task.remaining_time}")
+
             self.release_resources()
             if (task.remaining_time != 0):
-                self.subsystem.ready_queue.put(task)    
+                self.subsystem.ready_queue.put(task)
         else:
             self.subsystem.ready_queue.put(task)
             # Resource not available
             print(
-                f"Processor {self.id}: Insufficient resources for {task}, task cannot be started.")
+                f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Insufficient resources for {task}, task cannot be started.")
 
     def release_resources(self):
         """Release resources when task execution is complete."""
@@ -86,6 +86,7 @@ class Processor(threading.Thread):
 class Subsystem2(threading.Thread):
     def __init__(self, resource1, resource2):
         super().__init__()
+        self.subsystem_id = 2
         self.resource1 = resource1
         self.all_resource1 = resource1
         self.resource2 = resource2
@@ -105,25 +106,23 @@ class Subsystem2(threading.Thread):
             processor = Processor(i + 1, self)
             self.processors.append(processor)
 
-    def clock_processor(self, entered_time):
+    def clock_processor(self, time):
         """Run each processor's run_for_one_second method in parallel."""
+        # print(f"Time {time}")
+        threads = []
 
-        for time in range(1, entered_time):
-            print(f"Time {time}")
-            threads = []
+        for i in range(len(self.all_tasks)):
+            if self.all_tasks[i].arrival_time == time:
+                with self.ready_queue_lock:  # Acquire lock before accessing ready queue
+                    self.ready_queue.put(self.all_tasks[i])
+                print(f"{self.all_tasks[i]} added at {time}")
 
-            for i in range(len(self.all_tasks)):
-                if self.all_tasks[i].arrival_time == time:
-                    with self.ready_queue_lock:  # Acquire lock before accessing ready queue
-                        self.ready_queue.put(self.all_tasks[i])
-                    print(f"{self.all_tasks[i]} added at {time}")
+        for processor in self.processors:
+            thread = threading.Thread(target=processor.run_for_one_second)
+            threads.append(thread)
+            thread.start()
 
-            for processor in self.processors:
-                thread = threading.Thread(target=processor.run_for_one_second)
-                threads.append(thread)
-                thread.start()
-
-            self.display(time)
+        self.display(time)
         for thread in threads:
             thread.join()
 

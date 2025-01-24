@@ -48,12 +48,12 @@ class Processor(threading.Thread):
                 self.running_task.burst_time -= 1
 
                 print(
-                    f"Processor {self.id}: Running {self.running_task}, remaining quantum {self.running_task_quantom}"
+                    f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Running {self.running_task}, remaining quantum {self.running_task_quantom}"
                 )
 
                 if self.running_task.burst_time <= 0:
                     print(
-                        f"Task {self.running_task.task_id} has completed execution."
+                        f"Subsystem {self.subsystem.subsystem_id} Task {self.running_task.task_id} has completed execution."
                     )
                     self.subsystem.finished_tasks.append(self.running_task)
                     self.subsystem.resource1 += self.running_task.resource1_usage
@@ -62,7 +62,7 @@ class Processor(threading.Thread):
                 elif self.running_task_quantom <= 0:
                     self.task_queue.put(self.running_task)
                     print(
-                        f"Processor {self.id}: Quantum expired for {self.running_task}, re-queuing."
+                        f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Quantum expired for {self.running_task}, re-queuing."
                     )
                     self.subsystem.resource1 += self.running_task.resource1_usage
                     self.subsystem.resource2 += self.running_task.resource2_usage
@@ -100,7 +100,7 @@ class Processor(threading.Thread):
         # Preempt the current running task if necessary
         if higher_priority_task and self.running_task and higher_priority_task < self.running_task:
             print(
-                f"Processor {self.id}: Preempting {self.running_task} for higher-priority task {higher_priority_task}"
+                f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Preempting {self.running_task} for higher-priority task {higher_priority_task}"
             )
             self.running_task.state = "Waiting"
             self.task_queue.put(self.running_task)
@@ -121,22 +121,27 @@ class Processor(threading.Thread):
             self.running_task_quantom = weight
 
             print(
-                f"Processor {self.id}: Starting {task} with quantum {self.running_task_quantom}"
+                f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Starting {task} with quantum {self.running_task_quantom}"
             )
 
             task.state = "Running"
             task.burst_time -= 1
             self.running_task = task
         else:
-            with self.subsystem.waiting_queue_lock:  # Ensure thread-safe access to the waiting queue
-                self.subsystem.waiting_queue.put(task)
-                task.state = "Waiting"
+            if (self.subsystem.all_resource1 < task.resource1_usage or self.subsystem.all_resource2 < task.resource2_usage):
                 print(
-                    f"Processor {self.id}: Insufficient resources for {task}, moving to waiting queue."
+                    f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: All resources for task {task} is not enough. Not run this task"
                 )
-                # Debug print
-                print(
-                    f"Waiting queue size: {self.subsystem.waiting_queue.qsize()}")
+            else:
+                with self.subsystem.waiting_queue_lock:  # Ensure thread-safe access to the waiting queue
+                    self.subsystem.waiting_queue.put(task)
+                    task.state = "Waiting"
+                    print(
+                        f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Insufficient resources for {task}, moving to waiting queue."
+                    )
+                    # Debug print
+                    print(
+                        f"Subsystem {self.subsystem.subsystem_id} Waiting queue size: {self.subsystem.waiting_queue.qsize()}")
 
     def report_status(self):
         if self.running_task:
@@ -182,49 +187,48 @@ class Subsystem1(threading.Thread):
             )
             self.processors.append(processor)
 
-    def clock_processor(self, iterations):
-        """Run each processor's run_for_one_second method in parallel for the specified number of iterations."""
-        for time in range(1, iterations + 1):
-            print(f"Time {time}")
-            threads = []
+    def clock_processor(self, time):
 
-            # Dispatch tasks from waiting queue every 5 cycles
-            if time % 10 == 0:
-                self.dispatch_tasks_to_ready_queue()
+        # print(f"Time {time}")
+        threads = []
 
-            # Call load balancing every 3 cycles
-            if time % 5 == 0:
-                self.balance_load_between_processors()
+        # Dispatch tasks from waiting queue every 5 cycles
+        if time % 10 == 0:
+            self.dispatch_tasks_to_ready_queue()
 
-            # Decrease priority of tasks in the waiting queue
-            with self.waiting_queue_lock:  # Lock the waiting queue for thread safety
-                temp_tasks = []
-                while not self.waiting_queue.empty():
-                    task = self.waiting_queue.get()
-                    # Decrease priority
-                    task.priority = max(0, task.priority - 1)
-                    temp_tasks.append(task)
-                for task in temp_tasks:
-                    self.waiting_queue.put(task)
+        # Call load balancing every 3 cycles
+        if time % 5 == 0:
+            self.balance_load_between_processors()
 
-            # Execute each processor's run logic
-            for processor in self.processors:
-                thread = threading.Thread(target=processor.run_for_one_second)
-                threads.append(thread)
-                thread.start()
+        # Decrease priority of tasks in the waiting queue
+        with self.waiting_queue_lock:  # Lock the waiting queue for thread safety
+            temp_tasks = []
+            while not self.waiting_queue.empty():
+                task = self.waiting_queue.get()
+                # Decrease priority
+                task.priority = max(0, task.priority - 1)
+                temp_tasks.append(task)
+            for task in temp_tasks:
+                self.waiting_queue.put(task)
 
-            # Add new tasks to the ready queue based on arrival time
-            for task in self.all_tasks:
-                if task.arrival_time == time:
-                    self.processors[task.target_process -
-                                    1].task_queue.put(task)
-                    print(f"{task} added at {time}")
+        # Execute each processor's run logic
+        for processor in self.processors:
+            thread = threading.Thread(target=processor.run_for_one_second)
+            threads.append(thread)
+            thread.start()
 
-            # Display subsystem status
-            self.display(time)
+        # Add new tasks to the ready queue based on arrival time
+        for task in self.all_tasks:
+            if task.arrival_time == time:
+                self.processors[task.target_process -
+                                1].task_queue.put(task)
+                print(f"{task} added at {time}")
 
-            for thread in threads:
-                thread.join()
+        # Display subsystem status
+        self.display(time)
+
+        for thread in threads:
+            thread.join()
 
     def dispatch_tasks_to_ready_queue(self):
         # Debug print
@@ -247,6 +251,7 @@ class Subsystem1(threading.Thread):
                 print(
                     f"Dispatched {task} from waiting queue to Processor {target_processor.id}"
                 )
+
     def print_waiting_queue(self):
         """Print all tasks in the waiting queue."""
         with self.waiting_queue_lock:  # Ensure thread-safe access to the waiting queue
