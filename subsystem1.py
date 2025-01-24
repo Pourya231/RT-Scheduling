@@ -2,7 +2,6 @@ import threading
 import queue
 import random
 
-
 class TaskSubsystem1:
     def __init__(self, create_task_data):
         self.task_id = create_task_data[0]
@@ -39,76 +38,65 @@ class Processor(threading.Thread):
                 task = self.task_queue.get()
                 self.allocate_task(task)
         else:
-            # Check if there is a higher-priority task in the task_queue or waiting_queue
+            # Check for preemption
             self.check_preemption()
 
             # Execute the current task
             if self.running_task:
                 self.running_task_quantom -= 1
-                self.running_task.burst_time -= 1
+                self.running_task.burst_time = max(0, self.running_task.burst_time - 1)
 
                 print(
                     f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Running {self.running_task}, remaining quantum {self.running_task_quantom}"
                 )
 
-                if self.running_task.burst_time <= 0:
+                if self.running_task.burst_time == 0:
                     print(
                         f"Subsystem {self.subsystem.subsystem_id} Task {self.running_task.task_id} has completed execution."
                     )
+                    self.subsystem.tasks_report[self.running_task.task_id]['finish_time'] = self.subsystem.current_time
                     self.subsystem.finished_tasks.append(self.running_task)
                     self.subsystem.resource1 += self.running_task.resource1_usage
                     self.subsystem.resource2 += self.running_task.resource2_usage
-                    self.running_task = None
+                    self.running_task = None  # Clear the current task
                 elif self.running_task_quantom <= 0:
-                    self.task_queue.put(self.running_task)
+                    # Instead of re-queuing, manage the case properly:
                     print(
-                        f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Quantum expired for {self.running_task}, re-queuing."
+                        f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Quantum expired for {self.running_task}"
                     )
                     self.subsystem.resource1 += self.running_task.resource1_usage
                     self.subsystem.resource2 += self.running_task.resource2_usage
-                    self.running_task = None
+                    # Only if you want to queue it back if it didn't finish
+                    self.running_task.state = "Waiting"
+                    self.task_queue.put(self.running_task)
+                    self.running_task = None  # Clear the current task
 
     def check_preemption(self):
-        """Check for higher-priority tasks and preempt if necessary."""
-        higher_priority_task = None
-
+        """Check for higher-priority tasks in the ready queue and preempt if necessary."""
         # Check the ready queue for a higher-priority task
         if not self.task_queue.empty():
-            # Peek at the highest-priority task
+            # Peek at the highest-priority task in the ready queue
             top_ready_task = self.task_queue.queue[0]
-            if top_ready_task < self.running_task:  # Compare priorities
-                higher_priority_task = self.task_queue.get()
+            
+            # If the top task in the ready queue has higher priority than the running task, preempt
+            if self.running_task and top_ready_task < self.running_task:
+                print(
+                    f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Preempting {self.running_task} for higher-priority task {top_ready_task}"
+                )
+                
+                # Move the current running task back to the ready queue
+                self.running_task.state = "Waiting"
+                self.task_queue.put(self.running_task)
+                
+                # Release resources used by the preempted task
+                self.subsystem.resource1 += self.running_task.resource1_usage
+                self.subsystem.resource2 += self.running_task.resource2_usage
+                
+                # Clear the running task
+                self.running_task = None
 
-        # Check the waiting queue for a higher-priority task
-        with self.subsystem.waiting_queue_lock:
-            if not self.subsystem.waiting_queue.empty():
-                waiting_tasks = []
-                while not self.subsystem.waiting_queue.empty():
-                    task = self.subsystem.waiting_queue.get()
-                    if higher_priority_task is None or task < higher_priority_task:
-                        if higher_priority_task:
-                            self.subsystem.waiting_queue.put(
-                                higher_priority_task)
-                        higher_priority_task = task
-                    else:
-                        waiting_tasks.append(task)
-
-                # Reinsert remaining tasks into the waiting queue
-                for task in waiting_tasks:
-                    self.subsystem.waiting_queue.put(task)
-
-        # Preempt the current running task if necessary
-        if higher_priority_task and self.running_task and higher_priority_task < self.running_task:
-            print(
-                f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Preempting {self.running_task} for higher-priority task {higher_priority_task}"
-            )
-            self.running_task.state = "Waiting"
-            self.task_queue.put(self.running_task)
-            self.subsystem.resource1 += self.running_task.resource1_usage
-            self.subsystem.resource2 += self.running_task.resource2_usage
-
-            # Allocate the higher-priority task
-            self.allocate_task(higher_priority_task)
+                # Allocate the higher-priority task
+                self.allocate_task(top_ready_task)
 
     def allocate_task(self, task):
         """Allocate a task to the processor if resources are available."""
@@ -124,8 +112,9 @@ class Processor(threading.Thread):
                 f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Starting {task} with quantum {self.running_task_quantom}"
             )
 
+            self.subsystem.tasks_report[task.task_id]['running_processors'].append(self.id)
             task.state = "Running"
-            task.burst_time -= 1
+            task.priority =10
             self.running_task = task
         else:
             if (self.subsystem.all_resource1 < task.resource1_usage or self.subsystem.all_resource2 < task.resource2_usage):
@@ -142,15 +131,6 @@ class Processor(threading.Thread):
                     # Debug print
                     print(
                         f"Subsystem {self.subsystem.subsystem_id} Waiting queue size: {self.subsystem.waiting_queue.qsize()}")
-
-    def report_status(self):
-        if self.running_task:
-            print(
-                f"[Report] Processor {self.id}: Running task {self.running_task.task_id}, "
-                f"burst_time={self.running_task.burst_time}, quantum_remaining={self.running_task_quantom}"
-            )
-        else:
-            print(f"[Report] Processor {self.id}: Idle, no running task.")
 
 
 class Subsystem1(threading.Thread):
@@ -172,9 +152,18 @@ class Subsystem1(threading.Thread):
         self.base_quantum_time = 1
         self.processors = []
         self.finished_tasks = []
+        self.tasks_report = {}
+        self.current_time = 0
 
     def add_task(self, task):
         self.all_tasks.append(task)
+        self.tasks_report[task.task_id] = {
+            'arrival_time': task.arrival_time,
+            'finish_time': None,
+            'time_in_waiting_queue': 0,
+            'running_processors': [],
+            'running_subsystem': 'Subsystem 1'
+        }
 
     def initial_processor(self):
         """Initialize processors only once."""
@@ -188,12 +177,12 @@ class Subsystem1(threading.Thread):
             self.processors.append(processor)
 
     def clock_processor(self, time):
-
-        # print(f"Time {time}")
+        self.current_time = time
+        print(f"Time {time}")
         threads = []
 
         # Dispatch tasks from waiting queue every 5 cycles
-        if time % 10 == 0:
+        if self.current_time % 3 == 0:  # Every 20 cycles, force dispatch one task
             self.dispatch_tasks_to_ready_queue()
 
         # Call load balancing every 3 cycles
@@ -208,8 +197,10 @@ class Subsystem1(threading.Thread):
                 # Decrease priority
                 task.priority = max(0, task.priority - 1)
                 temp_tasks.append(task)
+                self.tasks_report[task.task_id]['time_in_waiting_queue'] += 1
             for task in temp_tasks:
                 self.waiting_queue.put(task)
+
 
         # Execute each processor's run logic
         for processor in self.processors:
@@ -244,7 +235,7 @@ class Subsystem1(threading.Thread):
 
                 # Find a random processor to assign the task to
                 # Correct usage of random.choice
-                target_processor = random.choice(self.processors)
+                target_processor = min(self.processors, key=lambda p: p.task_queue.qsize())
 
                 # Add the task to the target processor's ready queue
                 target_processor.task_queue.put(task)
@@ -360,13 +351,33 @@ class Subsystem1(threading.Thread):
         with open("subsystem1.txt", "a") as file:
             for line in lines:
                 file.write(line + "\n")
+    
+    def save_tasks_result(self):
+        """Save the results of the tasks to a text file."""
+        with open("tasks_results_subsystem1.txt", "w") as file:
+            file.write(f"Results of tasks in Subsystem {self.subsystem_id}:\n")
+            file.write(f"{'Task ID':<10} {'Arrival Time':<15} {'Finish Time':<15} {'Time in Waiting':<20} {'Running Processors'}\n")
+            file.write('-' * 85 + '\n')
+            
+            for task_id, report in self.tasks_report.items():
+                arrival_time = report['arrival_time']
+                finish_time = report['finish_time'] if report['finish_time'] is not None else 'Not Completed'
+                time_in_waiting = report['time_in_waiting_queue'] if report['time_in_waiting_queue'] is not None else 0
+                running_processors = ', '.join(map(str, report['running_processors']))
 
+                file.write(f"{task_id:<10} {arrival_time:<15} {finish_time:<15} {time_in_waiting:<20} {running_processors}\n")
+
+            print(f"Results saved to tasks_results_subsystem1.txt")
 
 # Initialize the subsystem and tasks
 subsystem1 = Subsystem1(3, 3)
-subsystem1.add_task(TaskSubsystem1(["T71", 8, 1, 1, 11, 1]))
-subsystem1.add_task(TaskSubsystem1(["T21", 10, 2, 2, 12, 1]))
-subsystem1.add_task(TaskSubsystem1(["T91", 20, 1, 1, 12, 1]))
+subsystem1.add_task(TaskSubsystem1(["T1", 8, 1, 1, 0, 1]))
+subsystem1.add_task(TaskSubsystem1(["T2", 12, 2, 2, 1, 2]))
+subsystem1.add_task(TaskSubsystem1(["T3", 10, 1, 1, 2, 3]))
 
 subsystem1.initial_processor()
-subsystem1.clock_processor(60)
+for i in range(50):
+    subsystem1.clock_processor(i)
+
+subsystem1.save_tasks_result()
+
