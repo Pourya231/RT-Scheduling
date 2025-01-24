@@ -36,7 +36,7 @@ Core 1
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Core 2
-  Running Task: None
+  Running Task: Task T2 (burst_time=11, priority=10)
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Core 3
@@ -70,7 +70,7 @@ Core 2
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Core 3
-  Running Task: None
+  Running Task: Task T3 (burst_time=9, priority=10)
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Time : 4
@@ -119,10 +119,10 @@ Core 3
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Time : 7
-Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+Resources R1(Available: 1, All: 3) R2(Available: 1, All: 3)
   Finished tasks: 
 Core 1
-  Running Task: Task T1 (burst_time=1, priority=10)
+  Running Task: None
   Ready Queue Size: 1
   Tasks in Ready Queue: Task T1 (burst_time=1, priority=10)
 Core 2
@@ -149,10 +149,10 @@ Core 3
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Time : 9
-Resources R1(Available: 1, All: 3) R2(Available: 1, All: 3)
-  Finished tasks: Task T1 (burst_time=-1, priority=10)
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
 Core 1
-  Running Task: None
+  Running Task: Task T1 (burst_time=-1, priority=10)
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Core 2
@@ -164,16 +164,16 @@ Core 3
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Time : 10
-Resources R1(Available: 1, All: 3) R2(Available: 1, All: 3)
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
   Finished tasks: Task T1 (burst_time=-1, priority=10)
 Core 1
   Running Task: None
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Core 2
-  Running Task: Task T2 (burst_time=2, priority=10)
-  Ready Queue Size: 0
-  Tasks in Ready Queue: 
+  Running Task: None
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T2 (burst_time=2, priority=10)
 Core 3
   Running Task: Task T3 (burst_time=2, priority=10)
   Ready Queue Size: 0
@@ -186,7 +186,7 @@ Core 1
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Core 2
-  Running Task: None
+  Running Task: Task T2 (burst_time=1, priority=10)
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Core 3
@@ -194,18 +194,18 @@ Core 3
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Time : 12
-Resources R1(Available: 1, All: 3) R2(Available: 1, All: 3)
-  Finished tasks: Task T1 (burst_time=-1, priority=10)
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T1 (burst_time=-1, priority=10), Task T2 (burst_time=0, priority=10), Task T3 (burst_time=0, priority=10)
 Core 1
   Running Task: None
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Core 2
-  Running Task: Task T2 (burst_time=0, priority=10)
+  Running Task: None
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Core 3
-  Running Task: Task T3 (burst_time=0, priority=10)
+  Running Task: None
   Ready Queue Size: 0
   Tasks in Ready Queue: 
 Time : 13

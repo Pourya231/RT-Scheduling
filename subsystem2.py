@@ -33,54 +33,67 @@ class Processor(threading.Thread):
 
     def run_for_one_second(self):
         with self.lock:
-            if not self.subsystem.ready_queue.empty():
-                task = self.subsystem.ready_queue.get()
-                print(task)
-
-                self.allocate_task(task)
+            if self.running_task and self.running_task.remaining_time > 0:
+                # Continue running the current task
+                self.running_task.remaining_time -= 1
+                print(
+                    f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Running {self.running_task}, remaining time {self.running_task.remaining_time}"
+                )
 
                 if self.running_task.remaining_time <= 0:
                     print(
-                        f"Subsystem {self.subsystem.subsystem_id} Task {self.running_task.task_id} has completed execution.")
+                        f"Subsystem {self.subsystem.subsystem_id} Task {self.running_task.task_id} has completed execution."
+                    )
                     self.subsystem.finished_tasks.append(self.running_task)
                     self.release_resources()
                     self.running_task = None
 
+            elif not self.subsystem.ready_queue.empty():
+                task = self.subsystem.ready_queue.get()
+
+                if self.can_allocate(task):
+                    self.allocate_task(task)
+                else:
+                    # If unable to allocate, put the task back in the queue
+                    with self.subsystem.ready_queue_lock:
+                        self.subsystem.ready_queue.put(task)
+
     def can_allocate(self, task):
         """Check if resources are available to allocate the task."""
-        return (self.subsystem.resource1 >= task.resource1_usage and
-                self.subsystem.resource2 >= task.resource2_usage)
+        return (
+            self.subsystem.resource1 >= task.resource1_usage
+            and self.subsystem.resource2 >= task.resource2_usage
+        )
 
     def allocate_task(self, task):
         """Allocate a task to the processor if resources are available."""
-        if self.can_allocate(task):
-            self.subsystem.resource1 -= task.resource1_usage
-            self.subsystem.resource2 -= task.resource2_usage
+        self.subsystem.resource1 -= task.resource1_usage
+        self.subsystem.resource2 -= task.resource2_usage
 
-            print(f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Starting {task}")
+        print(
+            f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Starting {task}"
+        )
 
-            self.running_task = task
+        self.running_task = task
+        self.running_task.remaining_time -= 1
+        print(
+            f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Running {self.running_task}, remaining time {self.running_task.remaining_time}"
+        )
 
-            self.running_task.remaining_time -= 1
+        if self.running_task.remaining_time <= 0:
             print(
-                f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Running {self.running_task}, remaining time {self.running_task.remaining_time}")
-
+                f"Subsystem {self.subsystem.subsystem_id} Task {self.running_task.task_id} has completed execution."
+            )
+            self.subsystem.finished_tasks.append(self.running_task)
             self.release_resources()
-            if (task.remaining_time != 0):
-                self.subsystem.ready_queue.put(task)
-        else:
-            self.subsystem.ready_queue.put(task)
-            # Resource not available
-            print(
-                f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Insufficient resources for {task}, task cannot be started.")
+            self.running_task = None
 
     def release_resources(self):
         """Release resources when task execution is complete."""
         if self.running_task:
             self.subsystem.resource1 += self.running_task.resource1_usage
             self.subsystem.resource2 += self.running_task.resource2_usage
-            # print(
-            #     f"Processor {self.id}: Released resources for {self.running_task}")
+
 
 
 class Subsystem2(threading.Thread):
