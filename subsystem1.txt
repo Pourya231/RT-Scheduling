@@ -1,0 +1,1800 @@
+Time : 1
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 2
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 3
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 4
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 5
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 6
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 7
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 8
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 9
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 10
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 11
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T71 (burst_time=8, priority=10)
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 12
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=7, priority=10)
+  Ready Queue Size: 2
+  Tasks in Ready Queue: Task T21 (burst_time=10, priority=10), Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 13
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=6, priority=10)
+  Ready Queue Size: 2
+  Tasks in Ready Queue: Task T21 (burst_time=10, priority=10), Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 14
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=5, priority=10)
+  Ready Queue Size: 2
+  Tasks in Ready Queue: Task T21 (burst_time=10, priority=10), Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 15
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=4, priority=10)
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=9, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 16
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=3, priority=10)
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=8, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 17
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=2, priority=10)
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=7, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 18
+Resources R1(Available: 1, All: 3) R2(Available: 1, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 2
+  Tasks in Ready Queue: Task T91 (burst_time=20, priority=10), Task T71 (burst_time=1, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=6, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 19
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T91 (burst_time=19, priority=10)
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T71 (burst_time=1, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=5, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 20
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T91 (burst_time=18, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: Task T21 (burst_time=4, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 21
+Resources R1(Available: 1, All: 3) R2(Available: 1, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9)
+Core 1
+  Running Task: None
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T91 (burst_time=18, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=3, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 22
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9)
+Core 1
+  Running Task: Task T91 (burst_time=17, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: Task T21 (burst_time=2, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 23
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9)
+Core 1
+  Running Task: Task T91 (burst_time=16, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: Task T21 (burst_time=1, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 24
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9)
+Core 1
+  Running Task: Task T91 (burst_time=15, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: Task T21 (burst_time=0, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 25
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=14, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 26
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=13, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 27
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=12, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 28
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=11, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 29
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=10, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 30
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=9, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 31
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=8, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 32
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=7, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 33
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=6, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 34
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=5, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 35
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T91 (burst_time=4, priority=10)
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 36
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=3, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 37
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=2, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 38
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=1, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 39
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 40
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 41
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 42
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 43
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 44
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 45
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 46
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 47
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 48
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 49
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 50
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 51
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 52
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 53
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 54
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 55
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 56
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 57
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 58
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 59
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 60
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 1
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 2
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 3
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 4
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 5
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 6
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 7
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 8
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 9
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 10
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 11
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T71 (burst_time=8, priority=10)
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 12
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=7, priority=10)
+  Ready Queue Size: 2
+  Tasks in Ready Queue: Task T21 (burst_time=10, priority=10), Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 13
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=6, priority=10)
+  Ready Queue Size: 2
+  Tasks in Ready Queue: Task T21 (burst_time=10, priority=10), Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 14
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=5, priority=10)
+  Ready Queue Size: 2
+  Tasks in Ready Queue: Task T21 (burst_time=10, priority=10), Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 15
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=4, priority=10)
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=9, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 16
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=3, priority=10)
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=8, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 17
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T71 (burst_time=2, priority=10)
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T91 (burst_time=20, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=7, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 18
+Resources R1(Available: 1, All: 3) R2(Available: 1, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: None
+  Ready Queue Size: 2
+  Tasks in Ready Queue: Task T91 (burst_time=20, priority=10), Task T71 (burst_time=1, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=6, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 19
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T91 (burst_time=19, priority=10)
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T71 (burst_time=1, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=5, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 20
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: 
+Core 1
+  Running Task: Task T91 (burst_time=18, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: Task T21 (burst_time=4, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 21
+Resources R1(Available: 1, All: 3) R2(Available: 1, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9)
+Core 1
+  Running Task: None
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T91 (burst_time=18, priority=10)
+Core 2
+  Running Task: Task T21 (burst_time=3, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 22
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9)
+Core 1
+  Running Task: Task T91 (burst_time=17, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T21 (burst_time=2, priority=10)
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 23
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9)
+Core 1
+  Running Task: Task T91 (burst_time=16, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 24
+Resources R1(Available: 0, All: 3) R2(Available: 0, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9)
+Core 1
+  Running Task: Task T91 (burst_time=15, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: Task T21 (burst_time=0, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 25
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=14, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 26
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=13, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 27
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=12, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 28
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=11, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 29
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=10, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 30
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=9, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 31
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=8, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 32
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=7, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 33
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=6, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 34
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=5, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 35
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 1
+  Tasks in Ready Queue: Task T91 (burst_time=4, priority=10)
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 36
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=3, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 37
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=2, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 38
+Resources R1(Available: 2, All: 3) R2(Available: 2, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10)
+Core 1
+  Running Task: Task T91 (burst_time=1, priority=10)
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 39
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 40
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 41
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 42
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 43
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 44
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 45
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 46
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 47
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 48
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 49
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 50
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 51
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 52
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 53
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 54
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 55
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 56
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 57
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 58
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 59
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Time : 60
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+  Finished tasks: Task T71 (burst_time=-1, priority=9), Task T21 (burst_time=0, priority=10), Task T91 (burst_time=0, priority=10)
+Core 1
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 2
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
+Core 3
+  Running Task: None
+  Ready Queue Size: 0
+  Tasks in Ready Queue: 
