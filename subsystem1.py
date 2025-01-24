@@ -38,38 +38,39 @@ class Processor(threading.Thread):
                 task = self.task_queue.get()
                 self.allocate_task(task)
         else:
-            # Check for preemption
-            self.check_preemption()
-
             # Execute the current task
-            if self.running_task:
-                self.running_task_quantom -= 1
-                self.running_task.burst_time = max(0, self.running_task.burst_time - 1)
-
-                print(
-                    f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Running {self.running_task}, remaining quantum {self.running_task_quantom}"
-                )
-
-                if self.running_task.burst_time == 0:
+            if self.running_task.burst_time == 0:
+                if self.running_task.state != "Completed":  # Check for multiple completions
                     print(
                         f"Subsystem {self.subsystem.subsystem_id} Task {self.running_task.task_id} has completed execution."
                     )
                     self.subsystem.tasks_report[self.running_task.task_id]['finish_time'] = self.subsystem.current_time
                     self.subsystem.finished_tasks.append(self.running_task)
+                    self.running_task.state = "Completed"  # Set state to Completed
                     self.subsystem.resource1 += self.running_task.resource1_usage
                     self.subsystem.resource2 += self.running_task.resource2_usage
                     self.running_task = None  # Clear the current task
-                elif self.running_task_quantom <= 0:
-                    # Instead of re-queuing, manage the case properly:
-                    print(
-                        f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Quantum expired for {self.running_task}"
-                    )
-                    self.subsystem.resource1 += self.running_task.resource1_usage
-                    self.subsystem.resource2 += self.running_task.resource2_usage
-                    # Only if you want to queue it back if it didn't finish
-                    self.running_task.state = "Waiting"
-                    self.task_queue.put(self.running_task)
-                    self.running_task = None  # Clear the current task
+                    return  # Exit as task is already finished
+
+            # Reduce burst time
+            self.running_task_quantom -= 1
+            self.running_task.burst_time = max(0, self.running_task.burst_time - 1)
+
+            print(
+                f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Running {self.running_task}, remaining quantum {self.running_task_quantom}"
+            )
+
+            if self.running_task_quantom <= 0 and self.running_task.burst_time > 0:
+                # Handle quantum expiry
+                print(
+                    f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Quantum expired for {self.running_task}"
+                )
+                self.subsystem.resource1 += self.running_task.resource1_usage
+                self.subsystem.resource2 += self.running_task.resource2_usage
+                
+                self.running_task.state = "Waiting"  # Change the state to Waiting before re-queueing
+                self.task_queue.put(self.running_task)  # Re-queue the task
+                self.running_task = None  # Clear the current task
 
     def check_preemption(self):
         """Check for higher-priority tasks in the ready queue and preempt if necessary."""
@@ -223,7 +224,6 @@ class Subsystem1(threading.Thread):
 
     def dispatch_tasks_to_ready_queue(self):
         # Debug print
-        self.print_waiting_queue()
         print(
             f"Waiting queue size before dispatch: {self.waiting_queue.qsize()}")
         """Move one task from the waiting queue to the ready queues of processors every 5 cycles."""
@@ -320,10 +320,10 @@ class Subsystem1(threading.Thread):
         line_2 = f"Resources R1(Available: {self.resource1}, All: {self.all_resource1}) R2(Available: {self.resource2}, All: {self.all_resource2})"
         lines.append(line_2)
 
-        finished_tasks = []
+        finished_tasksssss = []
         for task in self.finished_tasks:
-            finished_tasks.append(str(task))
-        lines.append(f"  Finished tasks: {', '.join(finished_tasks)}")
+            finished_tasksssss.append(str(task))
+        lines.append(f"  Finished tasks: {', '.join(finished_tasksssss)}")
 
         for i in range(len(self.processors)):
             line_3 = f"Core {i + 1}"
