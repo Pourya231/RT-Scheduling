@@ -109,8 +109,8 @@ T3 10 1 1 2 15 2
 
 ## Contributors
 
-- **[Your Name]**
-- For any questions, contact: [Your Email]
+- **[Saleh govahi and pourya alvani]**
+
 
 --- 
 
