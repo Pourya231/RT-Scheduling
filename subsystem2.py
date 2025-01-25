@@ -33,59 +33,105 @@ class Processor(threading.Thread):
 
     def run_for_one_second(self):
         with self.lock:
-            if not self.subsystem.ready_queue.empty():
-                task = self.subsystem.ready_queue.get()
-                print(task)
+            # Check for task preemption
+            if self.running_task and self.running_task.remaining_time > 0:
+                if not self.subsystem.ready_queue.empty():
+                    # Peek at the next task in the queue
+                    next_task = self.subsystem.ready_queue.queue[0]  # Get the highest priority task without removing it
+                    if next_task.remaining_time < self.running_task.remaining_time:
+                        # Preempt current task
+                        print(f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Preempting {self.running_task} for {next_task}")
 
-                self.allocate_task(task)
+                        # Put the current task back to the queue
+                        self.subsystem.ready_queue.put(self.running_task)
+                        self.running_task = None  # Clear the current running task
+
+            # If there's a running task and it still has remaining time, continue it
+            if self.running_task:
+                self.running_task.remaining_time -= 1
+                print(
+                    f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Running {self.running_task}, remaining time {self.running_task.remaining_time}"
+                )
+                # Update tasks_report
+                task_id = self.running_task.task_id
+                self.subsystem.tasks_report[task_id]['running_processors'].append(self.id)
 
                 if self.running_task.remaining_time <= 0:
                     print(
-                        f"Task {self.running_task.task_id} has completed execution.")
+                        f"Subsystem {self.subsystem.subsystem_id} Task {self.running_task.task_id} has completed execution."
+                    )
                     self.subsystem.finished_tasks.append(self.running_task)
+                    self.subsystem.tasks_report[task_id]['finish_time'] = self.subsystem.current_time
                     self.release_resources()
                     self.running_task = None
 
+            # Process the next task from the queue
+            elif not self.subsystem.ready_queue.empty():
+                task = self.subsystem.ready_queue.get()
+                if self.can_allocate(task):
+                    self.allocate_task(task)
+                else:
+                    if (self.subsystem.all_resource1 < task.resource1_usage or self.subsystem.all_resource2 < task.resource2_usage):
+                        print(
+                            f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: All resources for task {task} is not enough. Not run this task"
+                        )
+                    else:
+                        # If unable to allocate, put the task back in the queue
+                        with self.subsystem.ready_queue_lock:
+                            self.subsystem.ready_queue.put(task)
+                        
+                        
     def can_allocate(self, task):
         """Check if resources are available to allocate the task."""
-        return (self.subsystem.resource1 >= task.resource1_usage and
-                self.subsystem.resource2 >= task.resource2_usage)
+        return (
+            self.subsystem.resource1 >= task.resource1_usage
+            and self.subsystem.resource2 >= task.resource2_usage
+        )
 
     def allocate_task(self, task):
         """Allocate a task to the processor if resources are available."""
-        if self.can_allocate(task):
-            self.subsystem.resource1 -= task.resource1_usage
-            self.subsystem.resource2 -= task.resource2_usage
+        print(f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Allocating task {task}")
 
-            print(f"Processor {self.id}: Starting {task}")
+        # Release resources of current task if any
+        self.release_resources()
+        
+        self.subsystem.resource1 -= task.resource1_usage
+        self.subsystem.resource2 -= task.resource2_usage
 
-            self.running_task = task
-            
-            self.running_task.remaining_time -= 1
+        print(
+            f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Starting {task}"
+        )
+
+        self.running_task = task
+        self.running_task.remaining_time -= 1
+
+        # Update tasks_report with the running processor
+        task_id = task.task_id
+        self.subsystem.tasks_report[task_id]['running_processors'].append(self.id)
+
+        print(
+            f"Subsystem {self.subsystem.subsystem_id} Processor {self.id}: Running {self.running_task}, remaining time {self.running_task.remaining_time}"
+        )
+
+        if self.running_task.remaining_time <= 0:
             print(
-                f"Processor {self.id}: Running {self.running_task}, remaining time {self.running_task.remaining_time}")
-            
+                f"Subsystem {self.subsystem.subsystem_id} Task {self.running_task.task_id} has completed execution."
+            )
+            self.subsystem.finished_tasks.append(self.running_task)
+            self.subsystem.tasks_report[task_id]['finish_time'] = self.subsystem.current_time
             self.release_resources()
-            if (task.remaining_time != 0):
-                self.subsystem.ready_queue.put(task)    
-        else:
-            self.subsystem.ready_queue.put(task)
-            # Resource not available
-            print(
-                f"Processor {self.id}: Insufficient resources for {task}, task cannot be started.")
+            self.running_task = None
 
     def release_resources(self):
         """Release resources when task execution is complete."""
         if self.running_task:
             self.subsystem.resource1 += self.running_task.resource1_usage
             self.subsystem.resource2 += self.running_task.resource2_usage
-            # print(
-            #     f"Processor {self.id}: Released resources for {self.running_task}")
-
 
 class Subsystem2(threading.Thread):
     def __init__(self, resource1, resource2):
         super().__init__()
+        self.subsystem_id = 2
         self.resource1 = resource1
         self.all_resource1 = resource1
         self.resource2 = resource2
@@ -94,10 +140,18 @@ class Subsystem2(threading.Thread):
         self.processors = []
         self.all_tasks = []
         self.finished_tasks = []
+        self.tasks_report = {}
         self.ready_queue_lock = threading.Lock()  # Lock for the ready queue
+        self.current_time = 0
 
     def add_task(self, task):
         self.all_tasks.append(task)
+        self.tasks_report[task.task_id] = {
+            'arrival_time': task.arrival_time,
+            'finish_time': None,
+            'running_processors': [],
+            'running_subsystem': 'Subsystem 1'
+        }
 
     def initial_processors(self):
         """Initialize processors."""
@@ -105,25 +159,24 @@ class Subsystem2(threading.Thread):
             processor = Processor(i + 1, self)
             self.processors.append(processor)
 
-    def clock_processor(self, entered_time):
+    def clock_processor(self, time):
         """Run each processor's run_for_one_second method in parallel."""
+        # print(f"Time {time}")
+        self.current_time = time
+        threads = []
 
-        for time in range(1, entered_time):
-            print(f"Time {time}")
-            threads = []
+        for i in range(len(self.all_tasks)):
+            if self.all_tasks[i].arrival_time == time:
+                with self.ready_queue_lock:  # Acquire lock before accessing ready queue
+                    self.ready_queue.put(self.all_tasks[i])
+                print(f"{self.all_tasks[i]} added at {time}")
 
-            for i in range(len(self.all_tasks)):
-                if self.all_tasks[i].arrival_time == time:
-                    with self.ready_queue_lock:  # Acquire lock before accessing ready queue
-                        self.ready_queue.put(self.all_tasks[i])
-                    print(f"{self.all_tasks[i]} added at {time}")
+        for processor in self.processors:
+            thread = threading.Thread(target=processor.run_for_one_second)
+            threads.append(thread)
+            thread.start()
 
-            for processor in self.processors:
-                thread = threading.Thread(target=processor.run_for_one_second)
-                threads.append(thread)
-                thread.start()
-
-            self.display(time)
+        self.display(time)
         for thread in threads:
             thread.join()
 
@@ -152,6 +205,23 @@ class Subsystem2(threading.Thread):
         with open("subsystem2.txt", "a") as file:
             for line in lines:
                 file.write(line + "\n")
+                
+    def save_tasks_result(self):
+        """Save the results of the tasks to a text file."""
+        with open("tasks_results_subsystem2.txt", "w") as file:
+            file.write(f"Results of tasks in Subsystem {self.subsystem_id}:\n")
+            file.write(f"{'Task ID':<10} {'Arrival Time':<15} {'Finish Time':<15} {'Running Processors'}\n")
+            file.write('-' * 70 + '\n')
+            
+            for task_id, report in self.tasks_report.items():
+                arrival_time = report['arrival_time']
+                finish_time = report['finish_time'] if report['finish_time'] is not None else 'Not Completed'
+                running_processors = ', '.join(map(str, report['running_processors']))
+                
+                file.write(f"{task_id:<10} {arrival_time:<15} {finish_time:<15} {running_processors}\n")
+                
+            print(f"Results saved to tasks_results.txt")
+        
 
 
 # Create subsystem and add tasks
