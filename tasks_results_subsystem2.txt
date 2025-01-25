@@ -1,0 +1,6 @@
+Results of tasks in Subsystem 2:
+Task ID    Arrival Time    Finish Time     Running Processors
+----------------------------------------------------------------------
+T4         1               6               1, 2, 2, 2, 2, 2
+T5         2               4               1, 1, 1
+T6         2               13              1, 1, 1, 1, 1, 1, 1, 1, 1

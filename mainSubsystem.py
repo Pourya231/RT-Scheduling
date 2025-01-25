@@ -5,6 +5,7 @@ from subsystem2 import Subsystem2
 from subsystem2 import TaskSubsystem2
 from subsystem3 import Subsystem3
 from subsystem3 import TaskSubsystem3
+from fileReader import *
 
 class MainSubsystem:
     def __init__(self, subsystems):
@@ -69,13 +70,19 @@ class UpdatedSubsystem3(Subsystem3):
 
 # Main function
 if __name__ == "__main__":
-    subsystem1 = UpdatedSubsystem1(3, 3)
+    resources, tasks = load_data_from_file('in.txt')
+    
+    # print("Resources")
+    # print(resources)
+    # print(tasks)
+    
+    subsystem1 = UpdatedSubsystem1(resources[0][0], resources[0][1])
     subsystem1.add_task(TaskSubsystem1(["T1", 8, 1, 1, 0, 1]))
     subsystem1.add_task(TaskSubsystem1(["T2", 12, 3, 1, 1, 2]))
     subsystem1.add_task(TaskSubsystem1(["T3", 10, 1, 1, 2, 3]))
     subsystem1.initial_processor()
 
-    subsystem2 = UpdatedSubsystem2(10, 10)
+    subsystem2 = UpdatedSubsystem2(resources[1][0], resources[1][1])
     subsystem2.add_task(TaskSubsystem2(["T4", 6, 1, 1, 1]))
     subsystem2.add_task(TaskSubsystem2(["T5", 3, 3, 1, 2]))
     subsystem2.add_task(TaskSubsystem2(["T6", 9, 1, 1, 2]))

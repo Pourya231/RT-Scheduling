@@ -1,0 +1,427 @@
+Time : 30
+Resources R1(Available: 3, All: 3) R2(Available: 3, All: 3)
+finished tasks = []
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 0
+Resources R1(Available: 10, All: 10) R2(Available: 10, All: 10)
+finished tasks = []
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 1
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = []
+Core1:
+    Running task : Task T4 (remaining_time=5)
+Core2:
+    Running task :
+Time : 2
+Resources R1(Available: 6, All: 10) R2(Available: 8, All: 10)
+finished tasks = []
+Core1:
+    Running task : Task T5 (remaining_time=2)
+Core2:
+    Running task :
+Time : 3
+Resources R1(Available: 5, All: 10) R2(Available: 7, All: 10)
+finished tasks = []
+Core1:
+    Running task : Task T5 (remaining_time=1)
+Core2:
+    Running task : Task T4 (remaining_time=3)
+Time : 4
+Resources R1(Available: 8, All: 10) R2(Available: 8, All: 10)
+finished tasks = [Task T5 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task : Task T4 (remaining_time=2)
+Time : 5
+Resources R1(Available: 8, All: 10) R2(Available: 8, All: 10)
+finished tasks = [Task T5 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task : Task T4 (remaining_time=1)
+Time : 6
+Resources R1(Available: 7, All: 10) R2(Available: 7, All: 10)
+finished tasks = [Task T5 (remaining_time=0)]
+Core1:
+    Running task : Task T6 (remaining_time=7)
+Core2:
+    Running task : Task T4 (remaining_time=0)
+Time : 7
+Resources R1(Available: 8, All: 10) R2(Available: 8, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0)]
+Core1:
+    Running task : Task T6 (remaining_time=6)
+Core2:
+    Running task :
+Time : 8
+Resources R1(Available: 8, All: 10) R2(Available: 8, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0)]
+Core1:
+    Running task : Task T6 (remaining_time=5)
+Core2:
+    Running task :
+Time : 9
+Resources R1(Available: 8, All: 10) R2(Available: 8, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0)]
+Core1:
+    Running task : Task T6 (remaining_time=4)
+Core2:
+    Running task :
+Time : 10
+Resources R1(Available: 8, All: 10) R2(Available: 8, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0)]
+Core1:
+    Running task : Task T6 (remaining_time=3)
+Core2:
+    Running task :
+Time : 11
+Resources R1(Available: 8, All: 10) R2(Available: 8, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0)]
+Core1:
+    Running task : Task T6 (remaining_time=2)
+Core2:
+    Running task :
+Time : 12
+Resources R1(Available: 8, All: 10) R2(Available: 8, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0)]
+Core1:
+    Running task : Task T6 (remaining_time=1)
+Core2:
+    Running task :
+Time : 13
+Resources R1(Available: 8, All: 10) R2(Available: 8, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0)]
+Core1:
+    Running task : Task T6 (remaining_time=0)
+Core2:
+    Running task :
+Time : 14
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 15
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 16
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 17
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 18
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 19
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 20
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 21
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 22
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 23
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 24
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 25
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 26
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 27
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 28
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 29
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 30
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 31
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 32
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 33
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 34
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 35
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 36
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 37
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 38
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 39
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 40
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 41
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 42
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 43
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 44
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 45
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 46
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 47
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 48
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 49
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 50
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 51
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 52
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 53
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 54
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 55
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 56
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 57
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 58
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
+Time : 59
+Resources R1(Available: 9, All: 10) R2(Available: 9, All: 10)
+finished tasks = [Task T5 (remaining_time=0), Task T4 (remaining_time=0), Task T6 (remaining_time=0)]
+Core1:
+    Running task :
+Core2:
+    Running task :
